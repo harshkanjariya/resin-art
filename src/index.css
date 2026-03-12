@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  /* Brand – luxury resin art */
+  --color-beige: #f5f0e8;
+  --color-beige-dark: #e8e0d5;
+  --color-pastel-pink: #f2e4e4;
+  --color-pastel-pink-deep: #e8d4d4;
+  --color-ivory: #faf9f6;
+  --color-gold: #c9a962;
+  --color-gold-light: #e5d4a8;
+  --color-gold-dark: #a68b4a;
+  --color-glass: rgba(255, 255, 255, 0.25);
+  --color-glass-border: rgba(255, 255, 255, 0.4);
+  --color-muted: #8a7f6f;
+  --color-text: #3d3632;
+  --color-text-light: #5c534a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-ivory);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Gradient backgrounds */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-pastel-pink) 40%, var(--color-beige) 100%);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(180deg, rgba(245, 240, 232, 0.95) 0%, rgba(242, 228, 228, 0.9) 50%, rgba(250, 249, 246, 0.98) 100%);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* Ant Design overrides for brand */
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold)) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(201, 169, 98, 0.4);
+}
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)) !important;
+  box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5);
+}
+
+/* Timeline in Memory section */
+.memory-timeline .ant-timeline-item-tail {
+  border-inline-start: 2px solid rgba(201, 169, 98, 0.3);
+}
+.memory-timeline .ant-timeline-item-head {
+  background: transparent;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10px, -10px) scale(1.02); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-8px, 8px) scale(1.02); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-delayed 10s ease-in-out infinite;
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+.animate-fade-in-up.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-fade-in-up.delay-300 { animation-delay: 0.3s; opacity: 0; }
