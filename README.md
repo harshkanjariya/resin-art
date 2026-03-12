@@ -22,8 +22,20 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ```bash
 npm run build
-npm run preview   # preview production build
+npm run preview        # preview production build at /
+npm run preview:gh     # preview with GitHub Pages base path (/resin-art/)
 ```
+
+## GitHub Pages deployment
+
+**If the site is at harshkanjariya.online/resin-art/** (path on your main site):
+
+1. **GitHub** → **resin-art** repo → **Settings** → **Pages** → **Source:** Deploy from a branch, **Branch:** gh-pages, **/ (root)** → Save (if using gh-pages for this repo).
+2. Build (base path `/resin-art/`): `npm run build:gh`
+3. Copy everything from `dist/` into the **resin-art** folder of the repo that serves **harshkanjariya.online**. Push that repo.
+4. Site: **https://harshkanjariya.online/resin-art/**
+
+Or run `npm run deploy` to build and push to the **gh-pages** branch (for **https://harshkanjariya.github.io/resin-art/** if that URL is available).
 
 ## Project Structure
 
@@ -50,3 +62,6 @@ src/
 - **Contact** – Instagram, WhatsApp, email, location + CTA  
 
 Design: luxury, soft beige/pastel pink/ivory/gold palette, glassmorphism, smooth scrolling, responsive layout.
+
+
+#bca561 : primary color

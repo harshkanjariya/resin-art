@@ -33,11 +33,11 @@ export default function Hero() {
         <p className="text-lg sm:text-xl text-[var(--color-text-light)] max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
           Handcrafted resin creations by Nehal Dabhi – preserving your most precious moments forever.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
-          <Button type="primary" size="large" href="#collections" className="min-w-[200px]">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-fade-in-up delay-300">
+          <Button type="primary" size="large" href="#collections" className="w-full sm:w-auto sm:min-w-[200px]">
             View Collections <ArrowRightOutlined />
           </Button>
-          <Button size="large" href="#memory" className="min-w-[200px] border-[var(--color-gold)] text-[var(--color-gold)] hover:border-[var(--color-gold-light)] hover:text-[var(--color-gold-light)]">
+          <Button size="large" href="#memory" className="w-full sm:w-auto sm:min-w-[200px] border-[var(--color-gold)] text-[var(--color-gold)] hover:border-[var(--color-gold-light)] hover:text-[var(--color-gold-light)]">
             <HeartOutlined /> Preserve My Memory
           </Button>
         </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -8,25 +8,14 @@ import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 
 export default function MainLayout() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'glass shadow-lg py-3' : 'bg-transparent py-5'
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          <a href="#hero" className="flex items-center gap-2 text-[var(--color-text)] hover:opacity-90 transition-opacity">
-            <Logo showText variant="full" className="h-9 w-auto" />
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100 py-3">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 min-h-[52px]">
+          <a href="#hero" className="flex items-center gap-2 text-[var(--color-text)] hover:opacity-90 transition-opacity min-w-0 shrink">
+            <Logo showText={false} variant="full" className="h-8 sm:h-9 w-auto max-w-[180px] sm:max-w-none" />
           </a>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -47,13 +36,16 @@ export default function MainLayout() {
           >
             Start Your Artwork
           </Button>
-          <Button
-            type="text"
-            icon={<MenuOutlined className="text-lg" />}
-            className="md:hidden"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          />
+          {/* Wrapper ensures menu icon is hidden on desktop (Ant Design Button can override Tailwind hidden) */}
+          <div className="header-mobile-menu md:hidden flex items-center">
+            <Button
+              type="text"
+              icon={<MenuOutlined className="text-lg" />}
+              className="flex items-center justify-center min-w-[44px] min-h-[44px] -mr-2"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            />
+          </div>
         </div>
       </header>
 

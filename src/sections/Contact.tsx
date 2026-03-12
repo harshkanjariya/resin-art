@@ -19,14 +19,14 @@ export default function Contact() {
           Ready to preserve your memories or start a custom piece? Reach out via Instagram, WhatsApp, or email.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {contactItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               target={item.href.startsWith('http') || item.href.startsWith('mailto') ? '_blank' : undefined}
               rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="glass rounded-2xl p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="glass rounded-2xl p-4 sm:p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[120px] sm:min-h-0"
             >
               <span className="text-2xl text-[var(--color-gold)]">{item.icon}</span>
               <span className="font-medium text-[var(--color-text)]">{item.label}</span>
@@ -35,7 +35,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <Button type="primary" size="large" href="#custom-order" className="min-w-[260px]">
+        <Button type="primary" size="large" href="#custom-order" className="w-full sm:w-auto sm:min-w-[260px]">
           Start Your Custom Resin Artwork
         </Button>
       </div>

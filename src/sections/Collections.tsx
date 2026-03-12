@@ -47,7 +47,7 @@ export default function Collections() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {collections.map((item) => (
             <Card
               key={item.title}
@@ -58,7 +58,7 @@ export default function Collections() {
               <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-pastel-pink)]/40 to-[var(--color-beige)] flex items-center justify-center text-[var(--color-text-light)]/70 font-heading text-lg">
                 <Logo variant="silhouette" className="w-20 h-20 text-[var(--color-text-light)]/40" />
               </div>
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <h3 className="font-heading text-xl font-semibold text-[var(--color-text)] mb-2">
                   {item.title}
                 </h3>

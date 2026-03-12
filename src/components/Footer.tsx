@@ -10,13 +10,13 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-text)] text-[var(--color-beige)] py-12 px-4">
+    <footer className="bg-[var(--color-text)] text-[var(--color-beige)] py-10 sm:py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           <a href="#hero" className="flex items-center gap-2 text-[var(--color-beige)] hover:text-[var(--color-gold-light)] transition-colors">
-            <Logo showText variant="full" theme="light" className="h-9 w-auto [&_svg]:h-9 [&_svg]:w-9 [&_span]:text-[var(--color-beige)]" />
+            <Logo showText variant="full" theme="light" className="h-9 w-auto [&_img]:h-9 [&_img]:max-h-9 [&_span]:text-[var(--color-beige)]" />
           </a>
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             {links.map(({ icon, label, href }) => (
               <a
                 key={label}

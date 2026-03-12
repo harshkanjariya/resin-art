@@ -80,9 +80,9 @@ export default function MemoryPreservation() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="glass rounded-2xl p-8">
-            <h3 className="font-heading text-xl font-semibold text-[var(--color-text)] mb-4">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
+          <div className="glass rounded-2xl p-4 sm:p-6 md:p-8">
+            <h3 className="font-heading text-lg sm:text-xl font-semibold text-[var(--color-text)] mb-4">
               What we preserve
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -98,8 +98,8 @@ export default function MemoryPreservation() {
             </ul>
           </div>
 
-          <div className="bg-white/60 backdrop-blur rounded-2xl p-8 shadow-lg">
-            <h3 className="font-heading text-xl font-semibold text-[var(--color-text)] mb-6">
+          <div className="bg-white/60 backdrop-blur rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+            <h3 className="font-heading text-lg sm:text-xl font-semibold text-[var(--color-text)] mb-6">
               How it works
             </h3>
             <Timeline

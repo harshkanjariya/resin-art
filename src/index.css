@@ -28,6 +28,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-ivory);
@@ -72,6 +73,13 @@ body {
 .ant-btn-primary:hover {
   background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)) !important;
   box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5);
+}
+
+/* Header: hide mobile menu button on desktop (override any Ant Design specificity) */
+@media (min-width: 768px) {
+  .header-mobile-menu {
+    display: none !important;
+  }
 }
 
 /* Timeline in Memory section */

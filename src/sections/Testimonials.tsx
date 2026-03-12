@@ -32,11 +32,12 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t) => (
             <Card
               key={t.author}
               className="rounded-2xl border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur h-full"
+              classNames={{ body: 'p-4 sm:p-6' }}
             >
               <MessageOutlined className="text-3xl text-[var(--color-gold)]/60 mb-4" />
               <p className="text-[var(--color-text-light)] italic mb-6">"{t.quote}"</p>

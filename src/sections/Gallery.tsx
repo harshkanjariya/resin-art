@@ -46,22 +46,24 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-20 sm:py-28 bg-[var(--color-ivory)] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-[var(--color-text)] mb-3">
             Gallery
           </h2>
-          <p className="text-[var(--color-text-light)] max-w-xl mx-auto mb-8">
+          <p className="text-[var(--color-text-light)] max-w-xl mx-auto mb-6 sm:mb-8 px-1">
             A glimpse of handcrafted resin art – jewelry, decor, and preserved memories.
           </p>
-          <Segmented
-            value={category}
-            onChange={(v) => setCategory(v as Category)}
-            options={(['all', 'jewelry', 'decor', 'preservation'] as const).map((c) => ({
-              label: categoryLabels[c],
-              value: c,
-            }))}
-            className="bg-white/80 shadow-sm"
-          />
+          <div className="flex flex-wrap justify-center">
+            <Segmented
+              value={category}
+              onChange={(v) => setCategory(v as Category)}
+              options={(['all', 'jewelry', 'decor', 'preservation'] as const).map((c) => ({
+                label: categoryLabels[c],
+                value: c,
+              }))}
+              className="bg-white/80 shadow-sm text-sm sm:text-base"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -88,11 +90,11 @@ export default function Gallery() {
       {/* Simple lightbox */}
       {previewOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
           onClick={() => setPreviewOpen(false)}
         >
           <div
-            className="max-w-lg w-full mx-4 rounded-2xl overflow-hidden bg-[var(--color-beige)] p-8 text-center shadow-2xl"
+            className="max-w-lg w-full max-h-[90vh] overflow-y-auto rounded-2xl overflow-hidden bg-[var(--color-beige)] p-4 sm:p-6 md:p-8 text-center shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="aspect-square rounded-xl bg-gradient-to-br from-[var(--color-pastel-pink)]/50 to-[var(--color-beige)] flex items-center justify-center text-[var(--color-text-light)] mb-4">

@@ -32,7 +32,7 @@ export default function About() {
             <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-[var(--color-text)] mb-4">
               About the Artist
             </h2>
-            <p className="text-[var(--color-text-light)] text-lg leading-relaxed mb-6">
+            <p className="text-[var(--color-text-light)] text-base sm:text-lg leading-relaxed mb-6">
               Nehal Dabhi is a passionate resin artist who transforms emotions and memories into timeless
               handcrafted pieces. From wedding flowers to pregnancy kits, every preserved memory becomes a
               beautiful piece of art.
@@ -42,11 +42,11 @@ export default function About() {
               celebrate your most meaningful moments.
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
               {highlights.map((item, i) => (
                 <div
                   key={item.title}
-                  className="glass rounded-xl p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="glass rounded-xl p-4 sm:p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <h3 className="font-heading text-lg font-semibold text-[var(--color-gold-dark)] mb-2">
