@@ -2,9 +2,9 @@ import { InstagramOutlined, WhatsAppOutlined, MailOutlined, EnvironmentOutlined 
 import Logo from './Logo.tsx';
 
 const links = [
-  { icon: <InstagramOutlined />, label: 'Instagram', href: 'https://instagram.com/art_town_23' },
+  { icon: <InstagramOutlined />, label: 'Instagram', href: 'https://instagram.com/art_world.official' },
   { icon: <WhatsAppOutlined />, label: 'WhatsApp', href: 'https://wa.me/929512697711' },
-  { icon: <MailOutlined />, label: 'Email', href: 'mailto:nehaldabhi20@gmail.com' },
+  { icon: <MailOutlined />, label: 'Email', href: 'mailto:artworld.admin@gmail.com' },
   { icon: <EnvironmentOutlined />, label: 'Location', href: '#contact' },
 ];
 
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm text-white/70">
-          © {new Date().getFullYear()} Art Town. Handcrafted with care.
+          © {new Date().getFullYear()} Art World. Handcrafted with care.
         </div>
       </div>
     </footer>

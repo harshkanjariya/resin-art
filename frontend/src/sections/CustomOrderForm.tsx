@@ -20,7 +20,6 @@ const productTypes = [
 export default function CustomOrderForm() {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const [dynamicFiles, setDynamicFiles] = useState<Record<number, UploadFile[]>>({});
 
   const onFinish = async (values: any) => {
     const hide = message.loading('Uploading images and submitting...', 0);
@@ -174,18 +173,6 @@ export default function CustomOrderForm() {
                             >
                               <Input placeholder="Details or value" className="rounded-xl" />
                             </Form.Item>
-
-                            <Upload
-                                fileList={dynamicFiles[field.key] || []}
-                                onChange={({ fileList: next }) =>
-                                    setDynamicFiles((prev) => ({ ...prev, [field.key]: next }))
-                                }
-                                beforeUpload={() => false}
-                                multiple
-                                className="mb-2 sm:mb-0"
-                            >
-                              <Button icon={<UploadOutlined />}>Upload File</Button>
-                            </Upload>
 
                             <MinusCircleOutlined
                                 onClick={() => remove(field.name)}

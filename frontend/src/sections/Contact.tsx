@@ -2,9 +2,9 @@ import { Button } from 'antd';
 import { InstagramOutlined, WhatsAppOutlined, MailOutlined, EnvironmentOutlined } from '@ant-design/icons';
 
 const contactItems = [
-  { icon: <InstagramOutlined />, label: 'Instagram', href: 'https://instagram.com/art_town_23', value: '@art_town_23' },
+  { icon: <InstagramOutlined />, label: 'Instagram', href: 'https://instagram.com/art_world.official', value: '@art_world.official' },
   { icon: <WhatsAppOutlined />, label: 'WhatsApp', href: 'https://wa.me/929512697711', value: '+91 95126 9711' },
-  { icon: <MailOutlined />, label: 'Email', href: 'mailto:nehaldabhi20@gmail.com', value: 'nehaldabhi20@gmail.com' },
+  { icon: <MailOutlined />, label: 'Email', href: 'mailto:artworld.admin@gmail.com', value: 'artworld.admin@gmail.com' },
   { icon: <EnvironmentOutlined />, label: 'Location', href: '#', value: 'India' },
 ];
 

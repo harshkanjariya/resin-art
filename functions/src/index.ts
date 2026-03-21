@@ -10,7 +10,7 @@ if (admin.apps.length === 0) {
     admin.initializeApp();
 }
 
-const db = getFirestore();
+const db = getFirestore("art-world-prod");
 
 // 2. Load config
 import config from "./config.local.json";
@@ -25,7 +25,7 @@ setGlobalOptions({ region: "asia-south1" });
  */
 export const submitCustomOrder = onRequest({
     region: "asia-south1",
-    cors: true,
+    cors: ["https://art-world-official.web.app", "https://art-world-official.firebaseapp.com"],
 // @ts-ignore
 }, async (req, res) => {
     try {

@@ -41,12 +41,12 @@ export function Logo({
     <div className={`inline-flex items-center gap-2 ${className}`} style={style}>
       <img
         src={LOGO_SRC}
-        alt="Art Town"
+        alt="Art World"
         className={`h-full max-h-9 w-auto ${imgClassName}`}
       />
       {showText && (
         <span className="font-heading text-xl font-semibold tracking-wide text-inherit whitespace-nowrap">
-          Art Town
+          Art World
         </span>
       )}
     </div>
