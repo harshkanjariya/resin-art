@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Card, Segmented } from 'antd';
-import { getRandomBusinessImages } from '../utils/businessImages';
+import { getRandomBusinessImages } from '../utils/businessImages.ts';
 
 type Category = 'all' | 'jewelry' | 'decor' | 'preservation';
 

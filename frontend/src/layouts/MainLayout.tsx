@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom';
 import { Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { Drawer } from 'antd';
-import navLinks from '../utils/constants';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
+import navLinks from '../utils/constants.ts';
+import Footer from '../components/Footer.tsx';
+import Logo from '../components/Logo.tsx';
 
 export default function MainLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function MainLayout() {
             type="primary"
             size="large"
             className="hidden md:inline-flex items-center"
-            href="#custom-order"
+            href="custom-order"
           >
             Start Your Artwork
           </Button>

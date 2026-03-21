@@ -4,7 +4,7 @@ const navLinks = [
   { label: 'Collections', href: '#collections' },
   { label: 'Memory Preservation', href: '#memory' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'Custom Order', href: '#custom-order' },
+  { label: 'Custom Order', href: 'custom-order' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ] as const;

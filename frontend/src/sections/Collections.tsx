@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Card } from 'antd';
-import { getRandomBusinessImages } from '../utils/businessImages';
+import { getRandomBusinessImages } from '../utils/businessImages.ts';
 
 const collections = [
   {

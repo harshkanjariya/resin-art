@@ -1,5 +1,5 @@
 import { InstagramOutlined, WhatsAppOutlined, MailOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import Logo from './Logo';
+import Logo from './Logo.tsx';
 
 const links = [
   { icon: <InstagramOutlined />, label: 'Instagram', href: 'https://instagram.com/art_town_23' },
