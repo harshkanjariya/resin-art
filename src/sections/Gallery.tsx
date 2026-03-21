@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Card, Segmented } from 'antd';
-import Logo from '../components/Logo';
+import { getRandomBusinessImages } from '../utils/businessImages';
 
 type Category = 'all' | 'jewelry' | 'decor' | 'preservation';
 
@@ -8,22 +8,22 @@ interface GalleryItem {
   id: string;
   category: Category;
   title: string;
-  placeholder: string;
+  imageUrl: string;
 }
 
-const galleryItems: GalleryItem[] = [
-  { id: '1', category: 'jewelry', title: 'Resin Earrings', placeholder: 'Earrings 1' },
-  { id: '2', category: 'decor', title: 'Coaster Set', placeholder: 'Coasters' },
-  { id: '3', category: 'preservation', title: 'Wedding Flowers', placeholder: 'Wedding' },
-  { id: '4', category: 'jewelry', title: 'Pendant', placeholder: 'Pendant' },
-  { id: '5', category: 'decor', title: 'Tray', placeholder: 'Tray' },
-  { id: '6', category: 'preservation', title: 'Pregnancy Keepsake', placeholder: 'Pregnancy' },
-  { id: '7', category: 'jewelry', title: 'Bracelet', placeholder: 'Bracelet' },
-  { id: '8', category: 'decor', title: 'Wall Art', placeholder: 'Wall' },
-  { id: '9', category: 'preservation', title: 'Baby Tags', placeholder: 'Baby' },
-  { id: '10', category: 'jewelry', title: 'Ring Holder', placeholder: 'Ring' },
-  { id: '11', category: 'decor', title: 'Vase', placeholder: 'Vase' },
-  { id: '12', category: 'preservation', title: 'Custom Memory', placeholder: 'Custom' },
+const gallerySeedItems: Omit<GalleryItem, 'imageUrl'>[] = [
+  { id: '1', category: 'jewelry', title: 'Resin Earrings' },
+  { id: '2', category: 'decor', title: 'Coaster Set' },
+  { id: '3', category: 'preservation', title: 'Wedding Flowers' },
+  { id: '4', category: 'jewelry', title: 'Pendant' },
+  { id: '5', category: 'decor', title: 'Tray' },
+  { id: '6', category: 'preservation', title: 'Pregnancy Keepsake' },
+  { id: '7', category: 'jewelry', title: 'Bracelet' },
+  { id: '8', category: 'decor', title: 'Wall Art' },
+  { id: '9', category: 'preservation', title: 'Baby Tags' },
+  { id: '10', category: 'jewelry', title: 'Ring Holder' },
+  { id: '11', category: 'decor', title: 'Vase' },
+  { id: '12', category: 'preservation', title: 'Custom Memory' },
 ];
 
 const categoryLabels: Record<Category, string> = {
@@ -37,6 +37,15 @@ export default function Gallery() {
   const [category, setCategory] = useState<Category>('all');
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewTitle, setPreviewTitle] = useState('');
+  const [previewImage, setPreviewImage] = useState('');
+
+  const galleryItems = useMemo<GalleryItem[]>(() => {
+    const randomImages = getRandomBusinessImages(gallerySeedItems.length);
+    return gallerySeedItems.map((item, index) => ({
+      ...item,
+      imageUrl: randomImages[index],
+    }));
+  }, []);
 
   const filtered = useMemo(() => {
     if (category === 'all') return galleryItems;
@@ -75,12 +84,16 @@ export default function Gallery() {
               styles={{ body: { padding: 0 } }}
               onClick={() => {
                 setPreviewTitle(item.title);
+                setPreviewImage(item.imageUrl);
                 setPreviewOpen(true);
               }}
             >
-              <div className="aspect-square bg-gradient-to-br from-[var(--color-pastel-pink)]/50 to-[var(--color-beige)] flex items-center justify-center text-[var(--color-text-light)]/60 text-sm group-hover:scale-105 transition-transform duration-500">
-                <Logo variant="silhouette" className="w-14 h-14 sm:w-16 sm:h-16 text-[var(--color-text-light)]/40 group-hover:scale-110 transition-transform duration-500" />
-              </div>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="aspect-square w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
             </Card>
           ))}
         </div>
@@ -97,9 +110,7 @@ export default function Gallery() {
             className="max-w-lg w-full max-h-[90vh] overflow-y-auto rounded-2xl overflow-hidden bg-[var(--color-beige)] p-4 sm:p-6 md:p-8 text-center shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="aspect-square rounded-xl bg-gradient-to-br from-[var(--color-pastel-pink)]/50 to-[var(--color-beige)] flex items-center justify-center text-[var(--color-text-light)] mb-4">
-              <Logo variant="silhouette" className="w-24 h-24 text-[var(--color-text-light)]/40" />
-            </div>
+            <img src={previewImage} alt={previewTitle} className="aspect-square w-full rounded-xl object-cover mb-4" />
             <p className="font-heading text-lg font-semibold text-[var(--color-text)]">{previewTitle}</p>
             <button
               type="button"

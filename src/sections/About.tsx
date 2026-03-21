@@ -1,5 +1,3 @@
-import Logo from '../components/Logo';
-
 const highlights = [
   {
     title: 'Handmade',
@@ -20,11 +18,13 @@ export default function About() {
     <section id="about" className="py-20 sm:py-28 bg-brand-gradient scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Portrait placeholder */}
           <div className="relative order-2 md:order-1">
-            <div className="aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl bg-[var(--color-pastel-pink)]/50 flex items-center justify-center">
-              <Logo variant="silhouette" className="w-32 h-32 sm:w-40 sm:h-40 text-[var(--color-text-light)]/30" />
-            </div>
+            <img
+              src="/artist.jpg"
+              alt="Artist portrait"
+              className="aspect-[3/4] max-w-md mx-auto w-full rounded-2xl object-cover shadow-2xl"
+              loading="lazy"
+            />
             <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-2 border-[var(--color-gold)]/30 -z-10" />
           </div>
 

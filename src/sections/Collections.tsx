@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import { Card } from 'antd';
-import Logo from '../components/Logo';
+import { getRandomBusinessImages } from '../utils/businessImages';
 
 const collections = [
   {
@@ -35,6 +36,14 @@ const collections = [
 ];
 
 export default function Collections() {
+  const collectionsWithImages = useMemo(() => {
+    const randomImages = getRandomBusinessImages(collections.length);
+    return collections.map((item, index) => ({
+      ...item,
+      imageUrl: randomImages[index],
+    }));
+  }, []);
+
   return (
     <section id="collections" className="py-20 sm:py-28 bg-[var(--color-ivory)] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -48,16 +57,19 @@ export default function Collections() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {collections.map((item) => (
+          {collectionsWithImages.map((item) => (
             <Card
               key={item.title}
               hoverable
               className="overflow-hidden rounded-2xl border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur"
               styles={{ body: { padding: 0 } }}
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-pastel-pink)]/40 to-[var(--color-beige)] flex items-center justify-center text-[var(--color-text-light)]/70 font-heading text-lg">
-                <Logo variant="silhouette" className="w-20 h-20 text-[var(--color-text-light)]/40" />
-              </div>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
               <div className="p-4 sm:p-6">
                 <h3 className="font-heading text-xl font-semibold text-[var(--color-text)] mb-2">
                   {item.title}
