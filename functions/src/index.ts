@@ -25,7 +25,7 @@ setGlobalOptions({ region: "asia-south1" });
  */
 export const submitCustomOrder = onRequest({
     region: "asia-south1",
-    cors: ["https://art-world-official.web.app", "https://art-world-official.firebaseapp.com"],
+    cors: ["https://art-world-official.web.app", "https://art-world-official.firebaseapp.com", "https://art-world.store"],
 // @ts-ignore
 }, async (req, res) => {
     try {
